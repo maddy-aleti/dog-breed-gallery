@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Breed Gallery</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Dog Breed Gallery</h1>
+        <form action="/images" method="GET">
+            <select name="breed">
+                <option value="">Select a Breed</option>
+                <% breeds.forEach(breed => { %>
+                    <option value="<%= breed %>" <%= breed === selectedBreed ? "selected" : "" %>><%= breed %></option>
+                <% }) %>
+            </select>
+            <button type="submit">View Images</button>
+        </form>
+
+        <div class="gallery">
+            <% images.forEach(image => { %>
+                <img src="<%= image %>" alt="Dog Image">
+            <% }) %>
+        </div>
+    </div>
+</body>
+</html>
